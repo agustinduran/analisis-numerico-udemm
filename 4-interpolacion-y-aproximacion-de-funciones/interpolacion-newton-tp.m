@@ -1,12 +1,3 @@
-# Este algoritmo está realizado para calcularse a partir de 4 valores de x y f(x)
-#pkg load symbolic;
-#xi_length = 4;
-#values = cell(xi_length, 2);
-#for i = 1 : 1 : xi_length
-#	values{i, 1} = input("Introduzca el valor para Xi -> ");
-#	values{i, 2} = input("Introduzca el valor para f(Xi) -> ");
-#endfor
-
 pkg load symbolic;
 values = cell(xi_length, 2);
 values{1, 1} = 1;
@@ -41,7 +32,6 @@ eq += c0 * (x - values{1, 1}) * (x - values{2, 1}) * (x - values{3, 1});
 
 # Expandir ecuación
 eq = expand(eq);
-
 printf("\n\n Función resultante de la interpolación de Newton-Gregory \n\n\n");
 # Imprimir en pantalla
 disp(eq);
@@ -54,8 +44,7 @@ axis([-4 4 -5 20]);
 ezplot(eq);
 
 printf("\n\n Evaluación de la función aproximada en x = 2 \n\n");
-# REEMPLAZAR X POR UN VALOR
-# subs reemplaza variable símbolica por valor. vpa convierte a decimal.
+# Reemplazar f(x) con x=a; subs reemplaza variable símbolica por valor. vpa convierte a decimal.
 # El segundo parámetro son la cantidad de decimales a mostrar
 vpa(subs(eq, x, 2), 5)
 
